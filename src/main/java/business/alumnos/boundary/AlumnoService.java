@@ -1,0 +1,122 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package business.alumnos.boundary;
+
+import business.alumnos.entities.Alumno;
+import business.alumnos.entities.vo.Alumnos;
+import business.utils.UtilLogger;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
+import javax.ws.rs.PUT;
+import javax.ws.rs.QueryParam;
+
+/**
+ *
+ * @author cbustamante
+ */
+@RequestScoped
+@Path("/alumnos")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+@Tag(name = "AlumnoService", description = "Gestion de Alumnos")
+public class AlumnoService{
+    
+    
+    @Inject
+    AlumnoManager alumnoMgr;
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(description = "Cliente por Vendedor")
+    @APIResponses(value = {
+    @APIResponse(responseCode = "200", description = "Ok"),
+    @APIResponse(responseCode = "404", description = "Error alumno no encontrado"),
+    @APIResponse(responseCode = "500", description = "Error interno")})
+    public Response getAll() {
+        try {
+            UtilLogger.info("AlumnoService - getAll");
+            List<Alumno> listaAlumnos = alumnoMgr.getAll();            
+            if (!listaAlumnos.isEmpty()) {                
+                Alumnos alumnos = new Alumnos(listaAlumnos);                
+                UtilLogger.info("AlumnoService - listaAlumnos json :" +alumnos.toJson());
+                return Response.status(200).entity(alumnos.toJson()).build();
+            } else {
+                JsonObject value = Json.createObjectBuilder()
+                        .add("response", "404")
+                        .add("message", "No se encuentran registrados alumnos")
+                        .build();
+                return Response.status(404).entity(value).build();
+            }
+        } catch (Exception e) {
+            JsonObject value = Json.createObjectBuilder()
+                    .add("response", "500")
+                    .add("message", e.getMessage())
+                    .build();            
+            UtilLogger.error("AlumnosService - getAll ",e);
+            return Response.status(500).entity(value).build();            
+        }
+
+    }
+    @PUT()
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(description = "Agregar Alumno")
+    @APIResponses(value = {
+    @APIResponse(responseCode = "201", description = "Ok creado"),    
+    @APIResponse(responseCode = "500", description = "Error interno")})
+    public Response addAlumno(            
+    @QueryParam(value = "nombre") String nombre,    
+    @QueryParam(value = "apellido") String apellido,    
+    @QueryParam(value = "email") String email,    
+    @QueryParam(value = "documento") String documento,
+    @QueryParam(value = "sexo") String sexo,
+    @QueryParam(value = "fechaNac") String fechaNac,    
+    @QueryParam(value = "telefono") String telefono,    
+    @QueryParam(value = "direccion") String direccion) {
+        try {
+            UtilLogger.info("AlumnoService - agregar Alumno");
+            SimpleDateFormat sf = new SimpleDateFormat("dd/mm/yyyyy");
+            Alumno add = alumnoMgr.addAlumnoFromService(nombre,apellido,email,documento,sexo.charAt(0),sf.parse(fechaNac),telefono,direccion);
+            if (add !=null) {
+                
+                UtilLogger.info("AlumnoService - listaAlumnos json :");
+                return Response.status(201).entity(true).build();
+            } else {
+                JsonObject value = Json.createObjectBuilder()
+                        .add("response", "404")
+                        .add("message", "No se encuentran registrados alumnos")
+                        .build();
+                return Response.status(404).entity(value).build();
+            }
+        } catch (Exception e) {
+            JsonObject value = Json.createObjectBuilder()
+                    .add("response", "500")
+                    .add("message", e.getMessage())
+                    .build();
+            UtilLogger.error("AlumnosService - getAll ",e);
+            return Response.status(500).entity(value).build();            
+        }
+
+    }
+    
+    
+}
