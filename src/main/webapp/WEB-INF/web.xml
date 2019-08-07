@@ -11,8 +11,8 @@
     <data-source>
         <name>java:global/jdbc/MicroAcademyDS</name>
         <class-name>org.postgresql.ds.PGSimpleDataSource</class-name>
-        <server-name>testdb</server-name>
-        <port-number>15432</port-number>
+        <server-name>dbacademy</server-name>
+        <port-number>5432</port-number>
         <database-name>db_academy</database-name>
         <user>docker</user>
         <password>docker</password>

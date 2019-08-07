@@ -7,4 +7,5 @@ COPY target/MicroProfileAcademyApi-microbundle.jar /opt/MicroProfileAcademyApi-m
 RUN file="$(ls -la /opt)" && echo $file
 
 # run application with this command line 
-CMD ["/usr/bin/java", "-jar", "/opt/MicroProfileAcademyApi-microbundle.jar"]
+#RUN /usr/bin/java -jar /opt/MicroProfileAcademyApi-microbundle.jar -Dserver.name={SERVER.NAME}
+CMD ["/usr/bin/java", "-jar","/opt/MicroProfileAcademyApi-microbundle.jar"]

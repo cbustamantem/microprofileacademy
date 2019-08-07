@@ -9,7 +9,6 @@ import business.alumnos.entities.Alumno;
 import business.alumnos.entities.vo.Alumnos;
 import business.utils.UtilLogger;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -25,10 +24,12 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 
 /**
  *
@@ -45,6 +46,7 @@ public class AlumnoService{
     @Inject
     AlumnoManager alumnoMgr;
     
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(description = "Cliente por Vendedor")
@@ -52,6 +54,10 @@ public class AlumnoService{
     @APIResponse(responseCode = "200", description = "Ok"),
     @APIResponse(responseCode = "404", description = "Error alumno no encontrado"),
     @APIResponse(responseCode = "500", description = "Error interno")})
+    @Timed(name = "getAllStudents",
+    description = "Monitor the time getAll Method takes",
+    unit = MetricUnits.MILLISECONDS, absolute = true)
+    @Metered(name = "avgAllStudens")   
     public Response getAll() {
         try {
             UtilLogger.info("AlumnoService - getAll");
@@ -77,21 +83,27 @@ public class AlumnoService{
         }
 
     }
+    
     @PUT()
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(description = "Agregar Alumno")
     @APIResponses(value = {
     @APIResponse(responseCode = "201", description = "Ok creado"),    
     @APIResponse(responseCode = "500", description = "Error interno")})
+    @Metered(name = "addAlumno",
+    unit = MetricUnits.MILLISECONDS,
+    description = "Monitor the rate events occured",
+    absolute = true)
+    @Counted
     public Response addAlumno(            
-    @QueryParam(value = "nombre") String nombre,    
-    @QueryParam(value = "apellido") String apellido,    
-    @QueryParam(value = "email") String email,    
-    @QueryParam(value = "documento") String documento,
-    @QueryParam(value = "sexo") String sexo,
-    @QueryParam(value = "fechaNac") String fechaNac,    
-    @QueryParam(value = "telefono") String telefono,    
-    @QueryParam(value = "direccion") String direccion) {
+        @QueryParam(value = "nombre") String nombre,    
+        @QueryParam(value = "apellido") String apellido,    
+        @QueryParam(value = "email") String email,    
+        @QueryParam(value = "documento") String documento,
+        @QueryParam(value = "sexo") String sexo,
+        @QueryParam(value = "fechaNac") String fechaNac,    
+        @QueryParam(value = "telefono") String telefono,    
+        @QueryParam(value = "direccion") String direccion) {
         try {
             UtilLogger.info("AlumnoService - agregar Alumno");
             SimpleDateFormat sf = new SimpleDateFormat("dd/mm/yyyyy");
