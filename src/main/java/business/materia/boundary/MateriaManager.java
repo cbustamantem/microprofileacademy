@@ -7,13 +7,14 @@ package business.materia.boundary;
 
 import business.dao.GenericImpl;
 import business.materia.entities.Materia;
-import javax.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  *
  * @author cbustamante
  */
-@Stateless
+@ApplicationScoped
 public class MateriaManager extends GenericImpl<Materia, Integer> {
     
 }

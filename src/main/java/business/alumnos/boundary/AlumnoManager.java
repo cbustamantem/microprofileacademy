@@ -10,14 +10,16 @@ import business.dao.GenericImpl;
 import business.institucion.boundary.InstitucionManager;
 import business.personas.entities.Persona;
 import java.util.Date;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 /**
  *
  * @author cbustamante
  */
-@Stateless
+@ApplicationScoped
 public class AlumnoManager extends GenericImpl<Alumno, Integer> {
    
     @Inject

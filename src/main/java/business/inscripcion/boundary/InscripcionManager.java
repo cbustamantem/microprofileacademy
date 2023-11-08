@@ -8,13 +8,14 @@ package business.inscripcion.boundary;
 import business.clase.entities.Clase;
 import business.dao.GenericImpl;
 import business.inscripcion.entities.Inscripcion;
-import javax.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  *
  * @author cbustamante
  */
-@Stateless
+@ApplicationScoped
 public class InscripcionManager extends GenericImpl<Inscripcion, Integer> {
     
 }

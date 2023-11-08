@@ -8,13 +8,14 @@ package business.institucion.boundary;
 import business.alumnos.entities.Alumno;
 import business.dao.GenericImpl;
 import business.institucion.entities.Institucion;
-import javax.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  *
  * @author cbustamante
  */
-@Stateless
+@ApplicationScoped
 public class InstitucionManager extends GenericImpl<Institucion, Integer> {
     
 }

@@ -1,150 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>py.com.ougpy</groupId>
-    <artifactId>MicroProfileAcademyApi</artifactId>
-    <version>1.0.1</version>
+    <groupId>testing.jakartaee</groupId>
+    <artifactId>microprofile-academy</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
-    <name>MicroProfileAcademyApi</name>
-
     <properties>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <openliberty.maven.version>3.5.1</openliberty.maven.version>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <jaeger.client.version>1.5.0</jaeger.client.version>
+        <slf4j.jdk.version>1.7.30</slf4j.jdk.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <final.name>microprofile-academy</final.name>
+        <slf4j.api.version>1.7.30</slf4j.api.version>
     </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>javax</groupId>
-                <artifactId>javaee-api</artifactId>
-                <version>7.0</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.7</version>
-        </dependency>
-         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.3.1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>5.7</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-client</artifactId>
-            <version>2.25.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
-            <version>1.53</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <!--   Eclipse MicroProfile libs  !-->
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>2.1</version>
+            <version>5.0</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.microprofile-ext.openapi-ext</groupId>
-            <artifactId>swagger-ui</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.core</artifactId>
-            <version>2.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.asm</artifactId>
-            <version>2.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.antlr</artifactId>
-            <version>2.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>2.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
-            <version>2.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
-            <version>2.5.2</version>
-            <scope>provided</scope>
-        </dependency>
-        
-        
-        
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>
     <profiles>
         <profile>
-            <id>payara-micro</id>
+            <id>liberty</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>fish.payara.maven.plugins</groupId>
-                        <artifactId>payara-micro-maven-plugin</artifactId>
-                        <version>1.0.1</version>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>3.3.2</version>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.openliberty.tools</groupId>
+                        <artifactId>liberty-maven-plugin</artifactId>
+                        <version>${openliberty.maven.version}</version>
                         <executions>
                             <execution>
+                                <id>package-server</id>
                                 <phase>package</phase>
                                 <goals>
-                                    <goal>bundle</goal>
+                                    <goal>create</goal>
+                                    <goal>install-feature</goal>
+                                    <goal>deploy</goal>
+                                    <goal>package</goal>
                                 </goals>
+                                <configuration>
+                                    <outputDirectory>target/wlp-package</outputDirectory>
+                                </configuration>
                             </execution>
                         </executions>
                         <configuration>
-                            <payaraVersion>5.191</payaraVersion>
-                            <deployWar>true</deployWar>
+                            <include>runnable</include>
+                            <serverName>${final.name}</serverName>
+                            <bootstrapProperties>
+                                <project.name>${final.name}</project.name>
+                                <jwt.issuer>https://server.example.com</jwt.issuer>
+                                <app.context.root>/</app.context.root>
+                            </bootstrapProperties>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
+            <dependencies>
+                <dependency>
+                    <groupId>io.jaegertracing</groupId>
+                    <artifactId>jaeger-client</artifactId>
+                    <version>${jaeger.client.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>${slf4j.api.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-jdk14</artifactId>
+                    <version>${slf4j.jdk.version}</version>
+                </dependency>
+
+                <!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+                <dependency>
+                    <groupId>jakarta.persistence</groupId>
+                    <artifactId>jakarta.persistence-api</artifactId>
+                    <version>3.1.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.validation</groupId>
+                    <artifactId>jakarta.validation-api</artifactId>
+                    <version>3.0.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <version>2.0.7</version>
+                </dependency>
+                <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                    <version>4.13</version>
+                    <scope>compile</scope>
+                </dependency>
+        </dependencies>
         </profile>
     </profiles>
 </project>
-

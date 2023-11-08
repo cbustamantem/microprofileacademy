@@ -8,8 +8,8 @@ package business.alumnos.entities.vo;
 import business.alumnos.entities.Alumno;
 import com.google.gson.Gson;
 import java.util.List;
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
 
 /**
  *

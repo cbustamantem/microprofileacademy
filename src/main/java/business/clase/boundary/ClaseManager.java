@@ -7,13 +7,14 @@ package business.clase.boundary;
 
 import business.clase.entities.Clase;
 import business.dao.GenericImpl;
-import javax.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 
 /**
  *
  * @author cbustamante
  */
-@Stateless
+@ApplicationScoped
 public class ClaseManager extends GenericImpl<Clase, Integer> {
     
 }
