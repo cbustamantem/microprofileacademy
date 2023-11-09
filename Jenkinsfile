@@ -13,7 +13,8 @@ pipeline {
             sh 'cd db/container/'
             sh 'dir'
             sh 'pwd'
-            sh('start.sh')
+            sh 'ls -l'
+            sh 'sh start.sh'
           }
       }
 
