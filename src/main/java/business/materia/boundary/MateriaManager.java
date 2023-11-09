@@ -16,5 +16,9 @@ import jakarta.enterprise.context.RequestScoped;
  */
 @ApplicationScoped
 public class MateriaManager extends GenericImpl<Materia, Integer> {
+    @Override
+    protected String getEntityName() {
+        return "Materia";
+    }
     
 }

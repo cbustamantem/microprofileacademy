@@ -17,5 +17,9 @@ import jakarta.enterprise.context.RequestScoped;
  */
 @ApplicationScoped
 public class InstitucionManager extends GenericImpl<Institucion, Integer> {
+    @Override
+    protected String getEntityName() {
+        return "Institucion";
+    }
     
 }

@@ -11,9 +11,12 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collections;
 import java.util.List;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
+
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
+import jakarta.transaction.UserTransaction;
+
+import javax.naming.InitialContext;
 
 
 /*
@@ -29,15 +32,21 @@ import jakarta.persistence.Query;
  */
 public class GenericImpl<ET, PK extends Serializable>
     implements GenericDao<ET, PK> {
-
-
     @PersistenceContext(name = "AcademyRegisterPU")
     protected EntityManager em;
 
+    @PersistenceUnit
+    EntityManagerFactory emf;
+    private Class < ET > persistentClass;
+
     @Override
+    @Transactional
     public ET add(ET entity) {
         try {
+            UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+            tx.begin();
             em.persist(entity);
+            tx.commit();
             return entity;
         } catch (Exception ex) {
             UtilLogger.error(getEntityName() + ".add", ex);
@@ -46,9 +55,13 @@ public class GenericImpl<ET, PK extends Serializable>
     }
 
     @Override
+    @Transactional
     public ET update(ET entity) {
         try {
+            UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+            tx.begin();
             em.merge(entity);
+            tx.commit();
             return entity;
         } catch (Exception ex) {
             UtilLogger.error(getEntityName() + ".update", ex);
@@ -81,21 +94,21 @@ public class GenericImpl<ET, PK extends Serializable>
     }
 
     @Override
+    @Transactional
     public void delete(ET entity) {
         try {
+            UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+            tx.begin();
             em.remove(entity);
+            tx.commit();
         } catch (Exception e) {
             UtilLogger.error(this.getClass().getName() + ".update", e);
         }
     }
 
-    private String getEntityName() {
-        
-        return this.getGenericName().replace("Manager", "");
+    protected String getEntityName() {
+        return this.persistentClass.getSimpleName();
     }
 
-    protected String getGenericName() {
-        return ((Class<ET>) ((ParameterizedType) getClass()
-        .getGenericSuperclass()).getActualTypeArguments()[0]).getSimpleName();
-    }
+
 }

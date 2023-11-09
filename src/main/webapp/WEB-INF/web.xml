@@ -8,4 +8,17 @@
             30
         </session-timeout>
     </session-config>
+<!--    <data-source>-->
+<!--        <name>java:global/jdbc/MicroAcademyDS</name>-->
+<!--        <class-name>org.postgresql.ds.PGSimpleDataSource</class-name>-->
+<!--        <server-name>localhost</server-name>-->
+<!--        <port-number>5432</port-number>-->
+<!--        <database-name>postgres</database-name>-->
+<!--        <user>postgres</user>-->
+<!--        <password>postgres</password>-->
+<!--        <property>-->
+<!--            <name>fish.payara.sql-trace-listeners</name>-->
+<!--            <value>com.sun.gjc.util.SQLTraceLogger</value>-->
+<!--        </property>-->
+<!--    </data-source>-->
 </web-app>

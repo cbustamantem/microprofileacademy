@@ -3,10 +3,11 @@
 
     <featureManager>
         <feature>microProfile-5.0</feature>
+        <feature>jakartaee-9.1</feature>
     </featureManager>
     
 
-    <httpEndpoint id="defaultHttpEndpoint"
+    <httpEndpoint id="defaultHttpEndpoint" host="*"
                   httpPort="9080"
                   httpsPort="9443"/>
 
@@ -23,28 +24,27 @@
 
     <!-- The MP JWT configuration that injects the caller's JWT into a ResourceScoped bean for inspection. -->
     <mpJwt id="jwtUserConsumer" keyName="theKeyId" audiences="targetService" issuer="${jwt.issuer}"/>
-    <dataSource id="jdbc/MicroAcademyDS"
-                jndiName="jdbc/postgresql">
-        <jdbcDriver jdbcDriverRef="postgresql-driver" libraryRef="postgresql-library"/>
-        <properties.postgres serverName="localhost"
+    <dataSource  jndiName="jdbc/mpacademy">
+        <jdbcDriver  libraryRef="postgresql-library"/>
+        <properties.postgresql serverName="dbacademy"
                              portNumber="5432"
-                             databaseName="postgres"
-                             user="postgres"
-                             password="postgres"/>
+                             databaseName="db_academy"
+                             user="docker"
+                             password="docker"/>
     </dataSource>
 
     <jdbcDriver id="postgresql-driver"
                 javax.sql.XADataSource="org.postgresql.xa.PGXADataSource"
                 javax.sql.ConnectionPoolDataSource="org.postgresql.ds.PGConnectionPoolDataSource"
-                libraryRef="postgresql-library"/>
+                libraryRef="postgresql-library" />
 
     <library id="postgresql-library">
-        <fileset id="Pos    tgreSQLFileset" dir="${shared.resource.dir}/jdbc"
-                 includes="postgresql-42.2.5.jar"/>
+        <file  name="${server.config.dir}/postgresql-42.6.0.jar"/>
     </library>
 
-    <dataSource id="MicroAcademyDS" jndiName="jdbc/MicroAcademyDS">
-        <jdbcDriver libraryRef="postgresql-driver" />
-    </dataSource>
+
+<!--    <dataSource id="MicroAcademyDS" jndiName="java:global/jdbc/MicroAcademyDS">-->
+<!--        <jdbcDriver libraryRef="postgresql-driver" />-->
+<!--    </dataSource>-->
 
 </server>
