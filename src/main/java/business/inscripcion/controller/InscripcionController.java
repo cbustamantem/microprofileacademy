@@ -5,13 +5,14 @@
  */
 package business.inscripcion.controller;
 
-import javax.ejb.Stateless;
+
+import jakarta.enterprise.context.ApplicationScoped;
 
 /**
  *
  * @author cbustamante
  */
-@Stateless
+@ApplicationScoped
 public class InscripcionController {
     
     
