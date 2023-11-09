@@ -11,7 +11,6 @@ pipeline {
       stage('Start DB'){
           steps{
             dir('db/container/'){
-                sh 'cd db/container/'
                 sh 'dir'
                 sh 'pwd'
                 sh 'ls -l'
