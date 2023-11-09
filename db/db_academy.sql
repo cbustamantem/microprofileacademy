@@ -35,7 +35,6 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: alumno; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.alumno (
@@ -45,10 +44,8 @@ CREATE TABLE public.alumno (
 );
 
 
-ALTER TABLE public.alumno OWNER TO cbustamante;
 
 --
--- Name: alumno_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.alumno_id_seq
@@ -59,17 +56,14 @@ CREATE SEQUENCE public.alumno_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.alumno_id_seq OWNER TO cbustamante;
 
 --
--- Name: alumno_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.alumno_id_seq OWNED BY public.alumno.id;
 
 
 --
--- Name: ciudad; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.ciudad (
@@ -78,10 +72,8 @@ CREATE TABLE public.ciudad (
 );
 
 
-ALTER TABLE public.ciudad OWNER TO cbustamante;
 
 --
--- Name: ciudad_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.ciudad_id_seq
@@ -92,17 +84,14 @@ CREATE SEQUENCE public.ciudad_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.ciudad_id_seq OWNER TO cbustamante;
 
 --
--- Name: ciudad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.ciudad_id_seq OWNED BY public.ciudad.id;
 
 
 --
--- Name: clase; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.clase (
@@ -116,10 +105,8 @@ CREATE TABLE public.clase (
 );
 
 
-ALTER TABLE public.clase OWNER TO cbustamante;
 
 --
--- Name: clase_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.clase_id_seq
@@ -130,17 +117,14 @@ CREATE SEQUENCE public.clase_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.clase_id_seq OWNER TO cbustamante;
 
 --
--- Name: clase_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.clase_id_seq OWNED BY public.clase.id;
 
 
 --
--- Name: estado; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.estado (
@@ -149,10 +133,8 @@ CREATE TABLE public.estado (
 );
 
 
-ALTER TABLE public.estado OWNER TO cbustamante;
 
 --
--- Name: estado_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.estado_id_seq
@@ -163,17 +145,14 @@ CREATE SEQUENCE public.estado_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.estado_id_seq OWNER TO cbustamante;
 
 --
--- Name: estado_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.estado_id_seq OWNED BY public.estado.id;
 
 
 --
--- Name: hibernate_sequence; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.hibernate_sequence
@@ -184,10 +163,8 @@ CREATE SEQUENCE public.hibernate_sequence
     CACHE 1;
 
 
-ALTER TABLE public.hibernate_sequence OWNER TO cbustamante;
 
 --
--- Name: inscripcion; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.inscripcion (
@@ -198,10 +175,8 @@ CREATE TABLE public.inscripcion (
 );
 
 
-ALTER TABLE public.inscripcion OWNER TO cbustamante;
 
 --
--- Name: inscripcion_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.inscripcion_id_seq
@@ -213,17 +188,14 @@ CREATE SEQUENCE public.inscripcion_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.inscripcion_id_seq OWNER TO cbustamante;
 
 --
--- Name: inscripcion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.inscripcion_id_seq OWNED BY public.inscripcion.id;
 
 
 --
--- Name: institucion; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.institucion (
@@ -232,10 +204,8 @@ CREATE TABLE public.institucion (
 );
 
 
-ALTER TABLE public.institucion OWNER TO cbustamante;
 
 --
--- Name: institucion_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.institucion_id_seq
@@ -246,17 +216,14 @@ CREATE SEQUENCE public.institucion_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.institucion_id_seq OWNER TO cbustamante;
 
 --
--- Name: institucion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.institucion_id_seq OWNED BY public.institucion.id;
 
 
 --
--- Name: materia; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.materia (
@@ -265,10 +232,8 @@ CREATE TABLE public.materia (
 );
 
 
-ALTER TABLE public.materia OWNER TO cbustamante;
 
 --
--- Name: materia_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.materia_id_seq
@@ -279,17 +244,14 @@ CREATE SEQUENCE public.materia_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.materia_id_seq OWNER TO cbustamante;
 
 --
--- Name: materia_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.materia_id_seq OWNED BY public.materia.id;
 
 
 --
--- Name: persona; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.persona (
@@ -306,10 +268,8 @@ CREATE TABLE public.persona (
 );
 
 
-ALTER TABLE public.persona OWNER TO cbustamante;
 
 --
--- Name: persona_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.persona_id_seq
@@ -320,17 +280,14 @@ CREATE SEQUENCE public.persona_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.persona_id_seq OWNER TO cbustamante;
 
 --
--- Name: persona_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.persona_id_seq OWNED BY public.persona.id;
 
 
 --
--- Name: profesor; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.profesor (
@@ -339,10 +296,8 @@ CREATE TABLE public.profesor (
 );
 
 
-ALTER TABLE public.profesor OWNER TO cbustamante;
 
 --
--- Name: profesor_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.profesor_id_seq
@@ -353,17 +308,14 @@ CREATE SEQUENCE public.profesor_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profesor_id_seq OWNER TO cbustamante;
 
 --
--- Name: profesor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.profesor_id_seq OWNED BY public.profesor.id;
 
 
 --
--- Name: profesor_materia; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.profesor_materia (
@@ -372,10 +324,8 @@ CREATE TABLE public.profesor_materia (
 );
 
 
-ALTER TABLE public.profesor_materia OWNER TO cbustamante;
 
 --
--- Name: tipo_documento; Type: TABLE; Schema: public; Owner: cbustamante
 --
 
 CREATE TABLE public.tipo_documento (
@@ -384,10 +334,8 @@ CREATE TABLE public.tipo_documento (
 );
 
 
-ALTER TABLE public.tipo_documento OWNER TO cbustamante;
 
 --
--- Name: tipo_documento_id_seq; Type: SEQUENCE; Schema: public; Owner: cbustamante
 --
 
 CREATE SEQUENCE public.tipo_documento_id_seq
@@ -398,87 +346,74 @@ CREATE SEQUENCE public.tipo_documento_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tipo_documento_id_seq OWNER TO cbustamante;
 
 --
--- Name: tipo_documento_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: cbustamante
 --
 
 ALTER SEQUENCE public.tipo_documento_id_seq OWNED BY public.tipo_documento.id;
 
 
 --
--- Name: alumno id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.alumno ALTER COLUMN id SET DEFAULT nextval('public.alumno_id_seq'::regclass);
 
 
 --
--- Name: ciudad id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.ciudad ALTER COLUMN id SET DEFAULT nextval('public.ciudad_id_seq'::regclass);
 
 
 --
--- Name: clase id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.clase ALTER COLUMN id SET DEFAULT nextval('public.clase_id_seq'::regclass);
 
 
 --
--- Name: estado id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.estado ALTER COLUMN id SET DEFAULT nextval('public.estado_id_seq'::regclass);
 
 
 --
--- Name: inscripcion id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.inscripcion ALTER COLUMN id SET DEFAULT nextval('public.inscripcion_id_seq'::regclass);
 
 
 --
--- Name: institucion id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.institucion ALTER COLUMN id SET DEFAULT nextval('public.institucion_id_seq'::regclass);
 
 
 --
--- Name: materia id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.materia ALTER COLUMN id SET DEFAULT nextval('public.materia_id_seq'::regclass);
 
 
 --
--- Name: persona id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.persona ALTER COLUMN id SET DEFAULT nextval('public.persona_id_seq'::regclass);
 
 
 --
--- Name: profesor id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.profesor ALTER COLUMN id SET DEFAULT nextval('public.profesor_id_seq'::regclass);
 
 
 --
--- Name: tipo_documento id; Type: DEFAULT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.tipo_documento ALTER COLUMN id SET DEFAULT nextval('public.tipo_documento_id_seq'::regclass);
 
 
 --
--- Data for Name: alumno; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.alumno (id, persona, institucion) FROM stdin;
@@ -486,7 +421,6 @@ COPY public.alumno (id, persona, institucion) FROM stdin;
 
 
 --
--- Data for Name: ciudad; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.ciudad (id, descripcion) FROM stdin;
@@ -501,7 +435,6 @@ COPY public.ciudad (id, descripcion) FROM stdin;
 
 
 --
--- Data for Name: clase; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.clase (id, descripcion, fecha, estado, capacidad, materia_id, profesor_id) FROM stdin;
@@ -509,7 +442,6 @@ COPY public.clase (id, descripcion, fecha, estado, capacidad, materia_id, profes
 
 
 --
--- Data for Name: estado; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.estado (id, descripcion) FROM stdin;
@@ -522,7 +454,6 @@ COPY public.estado (id, descripcion) FROM stdin;
 
 
 --
--- Data for Name: inscripcion; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.inscripcion (id, id_alumno, id_clase, fechainscripcion) FROM stdin;
@@ -530,7 +461,6 @@ COPY public.inscripcion (id, id_alumno, id_clase, fechainscripcion) FROM stdin;
 
 
 --
--- Data for Name: institucion; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.institucion (id, descripcion) FROM stdin;
@@ -539,7 +469,6 @@ COPY public.institucion (id, descripcion) FROM stdin;
 
 
 --
--- Data for Name: materia; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.materia (id, descripcion) FROM stdin;
@@ -550,7 +479,6 @@ COPY public.materia (id, descripcion) FROM stdin;
 
 
 --
--- Data for Name: persona; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.persona (id, nombre, apellido, email, documento, tipo_documento_id, sexo, fecha_nac, telefono, direccion) FROM stdin;
@@ -558,7 +486,6 @@ COPY public.persona (id, nombre, apellido, email, documento, tipo_documento_id, 
 
 
 --
--- Data for Name: profesor; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.profesor (id, persona) FROM stdin;
@@ -566,7 +493,6 @@ COPY public.profesor (id, persona) FROM stdin;
 
 
 --
--- Data for Name: profesor_materia; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.profesor_materia (profesor, materia) FROM stdin;
@@ -574,7 +500,6 @@ COPY public.profesor_materia (profesor, materia) FROM stdin;
 
 
 --
--- Data for Name: tipo_documento; Type: TABLE DATA; Schema: public; Owner: cbustamante
 --
 
 COPY public.tipo_documento (id, descripcion) FROM stdin;
@@ -585,84 +510,72 @@ COPY public.tipo_documento (id, descripcion) FROM stdin;
 
 
 --
--- Name: alumno_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.alumno_id_seq', 388, true);
 
 
 --
--- Name: ciudad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.ciudad_id_seq', 7, true);
 
 
 --
--- Name: clase_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.clase_id_seq', 679, true);
 
 
 --
--- Name: estado_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.estado_id_seq', 4, true);
 
 
 --
--- Name: hibernate_sequence; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.hibernate_sequence', 1, false);
 
 
 --
--- Name: inscripcion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.inscripcion_id_seq', 1, false);
 
 
 --
--- Name: institucion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.institucion_id_seq', 35, true);
 
 
 --
--- Name: materia_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.materia_id_seq', 48, true);
 
 
 --
--- Name: persona_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.persona_id_seq', 991, true);
 
 
 --
--- Name: profesor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.profesor_id_seq', 68, true);
 
 
 --
--- Name: tipo_documento_id_seq; Type: SEQUENCE SET; Schema: public; Owner: cbustamante
 --
 
 SELECT pg_catalog.setval('public.tipo_documento_id_seq', 3, true);
 
 
 --
--- Name: alumno alumno_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.alumno
@@ -670,7 +583,6 @@ ALTER TABLE ONLY public.alumno
 
 
 --
--- Name: ciudad ciudad_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.ciudad
@@ -678,7 +590,6 @@ ALTER TABLE ONLY public.ciudad
 
 
 --
--- Name: clase clase_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.clase
@@ -686,7 +597,6 @@ ALTER TABLE ONLY public.clase
 
 
 --
--- Name: estado estado_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.estado
@@ -694,7 +604,6 @@ ALTER TABLE ONLY public.estado
 
 
 --
--- Name: institucion institucion_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.institucion
@@ -702,7 +611,6 @@ ALTER TABLE ONLY public.institucion
 
 
 --
--- Name: materia materia_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.materia
@@ -710,7 +618,6 @@ ALTER TABLE ONLY public.materia
 
 
 --
--- Name: persona persona_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.persona
@@ -718,7 +625,6 @@ ALTER TABLE ONLY public.persona
 
 
 --
--- Name: inscripcion pk_incripcion; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.inscripcion
@@ -726,7 +632,6 @@ ALTER TABLE ONLY public.inscripcion
 
 
 --
--- Name: profesor_materia profesor_materia_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.profesor_materia
@@ -734,7 +639,6 @@ ALTER TABLE ONLY public.profesor_materia
 
 
 --
--- Name: profesor profesor_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.profesor
@@ -742,7 +646,6 @@ ALTER TABLE ONLY public.profesor
 
 
 --
--- Name: tipo_documento tipo_documento_pkey; Type: CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.tipo_documento
@@ -750,7 +653,6 @@ ALTER TABLE ONLY public.tipo_documento
 
 
 --
--- Name: alumno fk_alumno_institucion1; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.alumno
@@ -758,7 +660,6 @@ ALTER TABLE ONLY public.alumno
 
 
 --
--- Name: alumno fk_alumno_persona1; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.alumno
@@ -766,7 +667,6 @@ ALTER TABLE ONLY public.alumno
 
 
 --
--- Name: clase fk_clase_estado1; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.clase
@@ -774,7 +674,6 @@ ALTER TABLE ONLY public.clase
 
 
 --
--- Name: clase fk_materia_clase; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.clase
@@ -782,7 +681,6 @@ ALTER TABLE ONLY public.clase
 
 
 --
--- Name: clase fk_profesor_clase; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.clase
@@ -790,7 +688,6 @@ ALTER TABLE ONLY public.clase
 
 
 --
--- Name: profesor_materia fk_profesor_has_materia_materia1; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.profesor_materia
@@ -798,7 +695,6 @@ ALTER TABLE ONLY public.profesor_materia
 
 
 --
--- Name: profesor_materia fk_profesor_has_materia_profesor1; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.profesor_materia
@@ -806,7 +702,6 @@ ALTER TABLE ONLY public.profesor_materia
 
 
 --
--- Name: profesor fk_profesor_persona1; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.profesor
@@ -814,7 +709,6 @@ ALTER TABLE ONLY public.profesor
 
 
 --
--- Name: persona fk_tipo_documento; Type: FK CONSTRAINT; Schema: public; Owner: cbustamante
 --
 
 ALTER TABLE ONLY public.persona
