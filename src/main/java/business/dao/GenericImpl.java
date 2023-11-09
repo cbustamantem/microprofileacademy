@@ -17,6 +17,7 @@ import jakarta.transaction.Transactional;
 import jakarta.transaction.UserTransaction;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 
 /*
@@ -43,7 +44,7 @@ public class GenericImpl<ET, PK extends Serializable>
     @Transactional
     public ET add(ET entity) {
         try {
-            UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+            UserTransaction tx = getUserTransaction();
             tx.begin();
             em.persist(entity);
             tx.commit();
@@ -54,11 +55,16 @@ public class GenericImpl<ET, PK extends Serializable>
         }
     }
 
+    private static UserTransaction getUserTransaction() throws NamingException {
+        UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+        return tx;
+    }
+
     @Override
     @Transactional
     public ET update(ET entity) {
         try {
-            UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+            UserTransaction tx = getUserTransaction();
             tx.begin();
             em.merge(entity);
             tx.commit();
@@ -97,7 +103,7 @@ public class GenericImpl<ET, PK extends Serializable>
     @Transactional
     public void delete(ET entity) {
         try {
-            UserTransaction tx = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+            UserTransaction tx = getUserTransaction();
             tx.begin();
             em.remove(entity);
             tx.commit();
