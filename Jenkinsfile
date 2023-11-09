@@ -40,7 +40,7 @@ pipeline {
 
       stage('Run Load Tests'){
           steps{
-              dir('scripts/'){
+              dir('script/'){
                 sh "sh addalumnos.sh || true"
               }
           }
