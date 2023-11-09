@@ -26,11 +26,10 @@ pipeline {
       }
 
       stage('Start Dependencies'){
-                steps{
-                    sh "docker start prometheus || true"
-                    sh "docker start graphana || true"
-                }
-          }
+            steps{
+                sh "docker start prometheus || true"
+                sh "docker start graphana || true"
+            }
       }
 
       stage('Wait 15 seconds'){
