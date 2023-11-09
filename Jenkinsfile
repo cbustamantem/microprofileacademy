@@ -46,5 +46,13 @@ pipeline {
               }
           }
       }
+
+      stage('Shutdown Services'){
+              steps{
+                   sleep 30
+                   sh "docker stop microprofileacademy || true"
+                   sh "docker stop dbacademy || true"
+              }
+      }
   }
 }
