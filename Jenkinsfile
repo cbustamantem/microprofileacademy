@@ -10,7 +10,8 @@ pipeline {
       stage('Start DB'){
           steps{
             dir("db/container/"){
-                sh "./start.sh"
+                sh("dir")
+                sh("start.sh")
             }
           }
       }
