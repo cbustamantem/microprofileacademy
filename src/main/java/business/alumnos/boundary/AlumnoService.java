@@ -60,6 +60,7 @@ public class AlumnoService{
     @Metered(name = "avgAllStudens")   
     public Response getAll() {
         try {
+            Thread.sleep(15000);
             UtilLogger.info("AlumnoService - getAll");
             List<Alumno> listaAlumnos = alumnoMgr.getAll();            
             if (!listaAlumnos.isEmpty()) {                

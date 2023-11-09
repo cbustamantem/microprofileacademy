@@ -42,6 +42,7 @@ pipeline {
           steps{
               dir('bkup/'){
                 sh "sh addalumnos.sh || true"
+                sh "sh getalumnos.sh || true"
               }
           }
       }
