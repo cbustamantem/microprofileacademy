@@ -32,4 +32,17 @@ pipeline {
                 }
           }
       }
+
+      stage('Wait 15 seconds'){
+              sleep 15
+      }
+
+      stage('Run Load Tests'){
+          steps{
+              dir('scripts/'){
+                sh "sh addalumnos.sh || true"
+              }
+          }
+      }
+  }
 }
