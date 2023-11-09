@@ -33,7 +33,9 @@ pipeline {
       }
 
       stage('Wait 15 seconds'){
-              sleep 15
+            steps{
+                sleep 15
+            }
       }
 
       stage('Run Load Tests'){
