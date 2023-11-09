@@ -13,17 +13,15 @@ pipeline {
                     echo "Starting Database"
                     cd db/container/
                     sh start.sh
-                    }
                 }
             }
-
         }
+
         stage ('Build project'){
             steps {
                 script {
                     echo "${GIT_URL}"
                     /bin/bash rebuild.sh
-                    }
                 }
             }
 
