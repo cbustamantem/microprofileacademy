@@ -28,7 +28,7 @@ pipeline {
       stage('Start Dependencies'){
             steps{
                 sh "docker start prometheus || true"
-                sh "docker start graphana || true"
+                sh "docker start grafana || true"
             }
       }
 
@@ -40,7 +40,7 @@ pipeline {
 
       stage('Run Load Tests'){
           steps{
-              dir('script/'){
+              dir('bkup/'){
                 sh "sh addalumnos.sh || true"
               }
           }
