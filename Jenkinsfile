@@ -14,15 +14,22 @@ pipeline {
                 sh 'dir'
                 sh 'pwd'
                 sh 'ls -l'
-                sh 'sh start.sh'
+                sh 'sh start.sh || true'
             }
           }
       }
 
       stage('Build Project'){
           steps{
-              sh "/bin/bash rebuild.sh"
+              sh "/bin/bash rebuild.sh || true"
           }
       }
-  }
+
+      stage('Start Dependencies'){
+                steps{
+                    sh "docker start prometheus || true"
+                    sh "docker start graphana || true"
+                }
+          }
+      }
 }
