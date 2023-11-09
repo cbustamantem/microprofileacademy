@@ -20,6 +20,5 @@ pipeline {
               sh "/bin/bash rebuild.sh"
           }
       }
-        
   }
 }
