@@ -7,24 +7,19 @@ pipeline {
     MAJOR_VERSION = 1
   }
   stages {
-        stage ('Start DB'){
-            steps {
-                script {
-                    echo "Starting Database"
-                    cd db/container/
-                    sh start.sh
-                }
+      stage('Start DB'){
+          steps{
+            dir("db/container/"){
+                sh "/bin/bash start.sh"
             }
-        }
+          }
+      }
 
-        stage ('Build project'){
-            steps {
-                script {
-                    echo "${GIT_URL}"
-                    /bin/bash rebuild.sh
-                }
-            }
-
-        }
+      stage('Build Project'){
+          steps{
+              sh "/bin/bash rebuild.sh"
+          }
+      }
+        
   }
 }
