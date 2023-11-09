@@ -6,6 +6,7 @@ pipeline {
     GIT_URL="https://github.com/cbustamantem/microprofileacademy.git"
     MAJOR_VERSION = 1
   }
+
   stages {
       stage('Start DB'){
           steps{
